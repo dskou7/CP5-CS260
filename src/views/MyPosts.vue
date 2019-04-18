@@ -104,7 +104,8 @@ export default {
   background-color: #737373;
   border-radius: 10px;
   width: 50%;
-  margin-left: 10%;
+  margin: auto;
+  margin-top: 20px;
   padding: 10px;
 }
 </style>

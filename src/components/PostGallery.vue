@@ -63,7 +63,8 @@ p {
   background: rgba(0, 127, 0, 0.3);
   border-radius: 10px;
   padding: 10px;
-  margin: 10px;
+  margin: auto;
+  margin-top: 15px;
 }
 
 a {

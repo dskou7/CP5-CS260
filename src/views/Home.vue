@@ -40,6 +40,15 @@ export default {
     await this.$store.dispatch("getUser");
     await this.$store.dispatch("getAllPosts");
   },
+  methods: {
+    async logout() {
+      try {
+        this.error = await this.$store.dispatch("logout");
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
 }
 </script>
 
