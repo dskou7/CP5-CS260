@@ -93,7 +93,7 @@ export default new Vuex.Store({
         //console.log("getphoto return below");
         //console.log(response.data[0]);
         //context.commit('setPhoto', response.data[0]);
-        context.commit('setPost', response.data);
+        context.commit('setPosts', response.data);
         return "";
       } catch (error) {
         console.log("getpost error");

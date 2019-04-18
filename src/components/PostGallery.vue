@@ -53,4 +53,22 @@ p {
   margin: 0px;
 }
 
+.post{
+  width: 40%;
+  /*width: fit-content;*/
+  text-align: left;
+  color: black;
+  /*background-color: #008000;
+  opacity: 0.3;*/
+  background: rgba(0, 127, 0, 0.3);
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+}
+
+a {
+  color:inherit;
+  text-decoration: none;
+ }
+
 </style>

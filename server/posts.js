@@ -62,15 +62,12 @@ router.get("/", auth.verifyToken, User.verify, async (req, res) => {
   }
 });
 
-
-
-//get a certain post
-router.get("/:id", async (req, res) => {
-  // return comments
-  console.log("post get firing");
+//get all posts
+router.get("/all", async (req, res) =>{
+  console.log("get all posts called")
   try {
-    let posts = await Post.find({
-      _id: req.params.id
+    let posts = await Post.find().sort({
+      created: -1
     }).populate('user');
     return res.send(posts);
   } catch (error) {
@@ -79,12 +76,13 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-//get all posts
-router.get("/all", async (req, res) =>{
-  console.log("get all posts called")
+//get a certain post
+router.get("/:id", async (req, res) => {
+  // return comments
+  console.log("post get firing");
   try {
-    let posts = await Post.find().sort({
-      created: -1
+    let posts = await Post.find({
+      _id: req.params.id
     }).populate('user');
     return res.send(posts);
   } catch (error) {

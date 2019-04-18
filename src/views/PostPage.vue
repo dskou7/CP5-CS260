@@ -45,7 +45,7 @@ export default {
   },
   async created() {
     await this.$store.dispatch("getUser");
-    await this.$store.dispatch("getPosts", this.$route.params.id);
+    await this.$store.dispatch("getPost", this.$route.params.id);
     await this.$store.dispatch("getComments", this.$route.params.id);
   },
   methods: {
