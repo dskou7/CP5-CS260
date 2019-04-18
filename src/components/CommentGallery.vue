@@ -1,0 +1,52 @@
+<template>
+<div>
+  <p>{{comments.length}} comments</p>
+  <div class="comments" v-for="comment in comments" v-bind:key="comment._id">
+    <p class="commentBody">{{comment.body}}</p>
+    <p class="commentDate">
+      <span v-if="comment.user.name">{{comment.user.name}}, </span>
+      {{formatDate(comment.created)}}
+    </p>
+  </div>
+</div>
+</template>
+
+<script>
+import moment from 'moment';
+
+export default {
+  name: 'CommentGallery',
+  props: {
+    comments: Array
+  },
+  methods: {
+   formatDate(date) {
+     if (moment(date).diff(Date.now(), 'days') < 15)
+       return moment(date).fromNow();
+     else
+       return moment(date).format('d MMMM YYYY');
+   }
+ },
+}
+</script>
+
+<style scoped>
+.commentBody {
+  font-size: 1.2em;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+.commentDate {
+  padding-top: 0px;
+  margin-top: 0px;
+  font-size: 0.9em;
+  font-weight: normal;
+  text-align: right;
+}
+
+.comments{
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+</style>
