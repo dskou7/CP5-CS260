@@ -81,7 +81,7 @@ export default {
       } catch (error) {
         console.log(error);
       }
-      await this.$store.dispatch("getComments", this.$route.params.id);
+      await this.$store.dispatch("getMyPosts");
     },
   }
 }

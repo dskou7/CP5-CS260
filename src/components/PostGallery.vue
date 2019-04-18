@@ -8,8 +8,8 @@
       <p class="postNumber"># Needed: {{post.needed}}</p>
       <p class="postDescription">{{post.description}}</p>
       <p class="postDate">
-        <span v-if="photo.user.name">{{photo.user.name}}, </span>
-        {{formatDate(photo.created)}}
+        <span v-if="post.user.name">{{post.user.name}}, </span>
+        {{formatDate(post.created)}}
       </p>
     </div>
     </router-link>

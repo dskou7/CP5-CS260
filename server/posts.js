@@ -29,7 +29,7 @@ router.post("/", auth.verifyToken, User.verify, async (req, res) => {
   // check parameters
   console.log("creating post");
   const post = new Post({
-    user: req.user._id,
+    user: req.user,
     title: req.body.title,
     game: req.body.game,
     description : req.body.description,
@@ -45,10 +45,29 @@ router.post("/", auth.verifyToken, User.verify, async (req, res) => {
   }
 });
 
+//get a user's posts
+router.get("/", auth.verifyToken, User.verify, async (req, res) => {
+  // return comments
+  console.log("user posts get firing");
+  try {
+    let posts = await Post.find({
+      user: req.user
+    }).sort({
+      created: -1
+    });
+    return res.send(posts);
+  } catch (error) {
+    console.log(error);
+    return res.sendStatus(500);
+  }
+});
+
+
+
 //get a certain post
 router.get("/:id", async (req, res) => {
   // return comments
-  console.log("comments get firing");
+  console.log("post get firing");
   try {
     let posts = await Post.find({
       _id: req.params.id
