@@ -36,8 +36,8 @@ export default {
     user() {
       return this.$store.state.user;
     },
-    photos() {
-      return this.$store.state.photos;
+    posts() {
+      return this.$store.state.posts;
     },
     comments() {
       return this.$store.state.comments;
@@ -45,7 +45,7 @@ export default {
   },
   async created() {
     await this.$store.dispatch("getUser");
-    await this.$store.dispatch("getPhoto", this.$route.params.id);
+    await this.$store.dispatch("getPosts", this.$route.params.id);
     await this.$store.dispatch("getComments", this.$route.params.id);
   },
   methods: {

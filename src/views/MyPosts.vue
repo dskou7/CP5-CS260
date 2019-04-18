@@ -66,12 +66,16 @@ export default {
         console.log(error);
       }
     },
-    async sendComment() {
+    async createPost() {
+      console.log("sending comment");
       try {
         this.error = await this.$store.dispatch("createPost",
-          {title: this.title, game: this.game, description: this. description, needed: this.playersNeeded});
+          {title: this.title, game: this.game, description: this.description, needed: this.playersNeeded});
         if (!this.error) {
-          this.comment = '';
+          this.title = '';
+          this.game = '';
+          this.description = '';
+          this.playersNeeded = '';
           this.$emit('uploadFinished');
         }
       } catch (error) {

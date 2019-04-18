@@ -15,7 +15,7 @@ const postSchema = new mongoose.Schema({
   title: String,
   game: String,
   desctiption: String,
-  needed: Number,
+  needed: String,
   created: {
     type: Date,
     default: Date.now
@@ -36,7 +36,7 @@ router.post("/", auth.verifyToken, User.verify, async (req, res) => {
     needed: req.body.needed,
   });
   try {
-    await comment.save();
+    await post.save();
     //console.log("comment saved");
     return res.sendStatus(200);
   } catch (error) {
