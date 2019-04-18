@@ -1,6 +1,6 @@
 <template>
 <div>
-<image-gallery :photos="photos" />
+<post-gallery :posts="posts" />
 <comment-gallery :comments="comments" />
 <div v-if="user">
 <form @submit.prevent="sendComment">

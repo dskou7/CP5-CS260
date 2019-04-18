@@ -15,6 +15,15 @@
     <router-link to="/login" class="pure-button">Login</router-link>
   </div>
   <div class="create" v-if="user">
+    <form @submit.prevent="createPost">
+      <p>Create a Looking for Group post:</p>
+      <input v-model="title" placeholder="Title"> Title of post<br/>
+      <input v-model="game" placeholder="Game"> Name of Game<br/>
+      <input v-model="playersNeeded" placeholder="1"> Number of players needed <br/>
+      <textarea v-model="description" placeholder="Details..."></textarea>
+      <p></p>
+      <button type="submit" class="pure-button pure-button-secondary">Submit</button>
+      </form>
   </div>
   <post-gallery :posts="posts" />
 
@@ -30,7 +39,11 @@ export default {
   },
   data() {
     return {
-      show: false,
+      title: '',
+      game: '',
+      description: '',
+      playersNeeded: '',
+      error: '',
     }
   },
   computed: {
@@ -53,6 +66,19 @@ export default {
         console.log(error);
       }
     },
+    async sendComment() {
+      try {
+        this.error = await this.$store.dispatch("createPost",
+          {title: this.title, game: this.game, description: this. description, needed: this.playersNeeded});
+        if (!this.error) {
+          this.comment = '';
+          this.$emit('uploadFinished');
+        }
+      } catch (error) {
+        console.log(error);
+      }
+      await this.$store.dispatch("getComments", this.$route.params.id);
+    },
   }
 }
 </script>
@@ -68,7 +94,13 @@ export default {
   font-size: 2em;
 }
 
-.header svg {
-  margin-top: 12px;
+.create {
+  text-align: left;
+  color: black;
+  background-color: #737373;
+  border-radius: 10px;
+  width: 50%;
+  margin-left: 10%;
+  padding: 10px;
 }
 </style>

@@ -3,12 +3,14 @@
   <div class="post" v-for="post in posts" v-bind:key="post._id">
     <router-link :to="{ name: 'post', params: { id: post._id }}">
     <div class="postInner">
-      <p class="photoTitle">{{photo.title}}</p>
-      <p class="photoDate">
+      <p class="postTitle">{{post.title}}</p>
+      <p class="postName">Game: {{post.game}}</p>
+      <p class="postNumber"># Needed: {{post.needed}}</p>
+      <p class="postDescription">{{post.description}}</p>
+      <p class="postDate">
         <span v-if="photo.user.name">{{photo.user.name}}, </span>
         {{formatDate(photo.created)}}
       </p>
-      <p>{{photo.description}}</p>
     </div>
     </router-link>
 
