@@ -35,4 +35,9 @@
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+
+.pure-menu-horizontal .pure-menu-link{
+  background: aliceblue;
+  color: #1b2631 !important;
+}
 </style>

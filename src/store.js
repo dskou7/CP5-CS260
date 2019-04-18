@@ -12,12 +12,15 @@ export default new Vuex.Store({
   },
   mutations: {
     setUser(state, user) {
+      console.log("store got new user");
       state.user = user;
     },
     setPosts(state, posts) {
+      console.log("store got new posts");
       state.posts = posts;
     },
     setComments(state, comments) {
+      console.log("store got new comments");
       state.comments = comments;
     },
   },
@@ -113,6 +116,7 @@ export default new Vuex.Store({
     //need put action here
     //comment actions
     async getComments(context, id) {
+      console.log("getcomments firing for ID" + id);
       try {
         let response = await axios.get("/api/comments/" + id);
         context.commit('setComments', response.data);

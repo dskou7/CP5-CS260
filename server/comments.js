@@ -47,6 +47,7 @@ router.post("/", auth.verifyToken, User.verify, async (req, res) => {
 
 //get all comments for a photo
 router.get("/:id", async (req, res) => {
+  console.log("searching for comments");
   try {
     let comments = await Comment.find({
       post: mongoose.Types.ObjectId(req.params.id)

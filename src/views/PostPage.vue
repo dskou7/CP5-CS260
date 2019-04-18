@@ -1,16 +1,16 @@
 <template>
-<div>
-<post-gallery :posts="posts" />
-<comment-gallery :comments="comments" />
-<div v-if="user">
-<form @submit.prevent="sendComment">
-  <p>Add a comment:</p>
-  <textarea v-model="comment" placeholder="comment"></textarea>
-  <p></p>
-  <button type="submit" class="pure-button pure-button-secondary">Submit</button>
-</form>
-</div>
-</div>
+  <div>
+    <post-gallery :posts="posts" />
+    <comment-gallery :comments="comments" />
+    <div class="newComment" v-if="user">
+      <form @submit.prevent="sendComment">
+        <p>Add a comment:</p>
+        <textarea v-model="comment" placeholder="comment"></textarea>
+        <p></p>
+        <button type="submit" class="pure-button pure-button-secondary">Submit</button>
+      </form>
+    </div>
+  </div>
 </template>
 
 
@@ -54,7 +54,7 @@ export default {
       //const formData = new FormData();
       //formData.append('body', this.comment);
       //formData.append('photo', this.$route.params.id);
-      this.error = await this.$store.dispatch("postComment", {body: this.comment, photo: this.$route.params.id});
+      this.error = await this.$store.dispatch("postComment", {body: this.comment, post: this.$route.params.id});
       if (!this.error) {
         this.comment = '';
         this.$emit('uploadFinished');
@@ -77,5 +77,15 @@ textarea {
 
 .pure-button-secondary {
   float: right;
+}
+
+.newComment {
+  width: 50%;
+  margin: auto;
+  margin-top: 25px;
+  text-align: left;
+  padding: 10px;
+  border-radius: 10px;
+  background: rgba(230, 230, 230, 0.3);
 }
 </style>

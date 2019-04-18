@@ -1,7 +1,7 @@
 <template>
 <div>
   <p>{{comments.length}} comments</p>
-  <div class="comments" v-for="comment in comments" v-bind:key="comment._id">
+  <div class="aComment" v-for="comment in comments" v-bind:key="comment._id">
     <p class="commentBody">{{comment.body}}</p>
     <p class="commentDate">
       <span v-if="comment.user.name">{{comment.user.name}}, </span>
@@ -45,8 +45,12 @@ export default {
   text-align: right;
 }
 
-.comments{
+.aComment{
   border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.3);
+  background: rgba(155, 155, 155, 0.3);
+  width: 45%;
+  padding: 15px;
+  margin: auto;
+  margin-top: 10px;
 }
 </style>
