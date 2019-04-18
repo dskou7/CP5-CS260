@@ -2,12 +2,7 @@
 <div>
   <div class="header" v-if="user">
     <div>
-      <h1>{{user.name}}</h1>
-    </div>
-    <div>
-      <p>
-        <a href="#" @click="logout">Logout</a>
-      </p>
+      <p>{{user.name}} | <a href="#" @click="logout">Logout</a></p>
     </div>
   </div>
   <div class="header" v-else>
@@ -88,15 +83,6 @@ export default {
 </script>
 
 <style scoped>
-.header {
-  display: flex;
-}
-
-.header a {
-  padding-left: 50px;
-  color: #222;
-  font-size: 2em;
-}
 
 .create {
   text-align: left;

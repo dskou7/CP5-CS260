@@ -14,7 +14,7 @@ const postSchema = new mongoose.Schema({
   },
   title: String,
   game: String,
-  desctiption: String,
+  description: String,
   needed: String,
   created: {
     type: Date,

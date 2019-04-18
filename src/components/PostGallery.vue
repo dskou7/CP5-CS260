@@ -72,4 +72,8 @@ a {
   text-decoration: none;
  }
 
+ .postTitle{
+   text-align: center;
+ }
+
 </style>

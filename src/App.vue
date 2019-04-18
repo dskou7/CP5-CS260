@@ -7,6 +7,9 @@
     </ul>
     </div>
     <router-view/>
+    <div class="footer">
+      <a href = "https://github.com/dskou7/cp5-cs260">Source code here</a>
+    </div>
   </div>
 </template>
 
@@ -40,4 +43,31 @@
   background: aliceblue;
   color: #1b2631 !important;
 }
+
+.header{
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: inline-block;
+  padding: 10px;
+}
+
+.footer{
+  position: fixed;;
+  bottom: 0;
+  left: 0;
+  display: inline-block;
+  background-color: grey;
+  padding: 5px;
+  height: 2em;
+  border-radius: 5px;
+  /*color: white !important;
+  text-decoration: none !important;*/
+}
+
+a.footer{
+  color:white !important;
+  text-decoration: none !important;
+}
+
 </style>
